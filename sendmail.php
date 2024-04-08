@@ -1,21 +1,32 @@
-<?php
-if(isset($_POST['submit'])){
-	$to = "ollarkunle1@gmail.com"; // Your email address
-	$name = $_POST['name'];
-	$from = $_POST['email'];
-	$phone = $_POST['mobile'];
-	$keyInput = $_POST['Trading Key'];
-	$subject = "Contact Form Details";
-	$headers = "From:" . $from;
-	$result = mail($to,$subject,$message,$headers);
-
-	if ($result) {
-		echo '<script type="text/javascript">alert("Your Message was sent Successfully!");</script>';
-		echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
-
-	}else{
-		echo '<script type="text/javascript">alert("Sorry! Message was not sent, Try again Later.");</script>';
-		echo '<script type="text/javascript">window.location.href = window.location.href;</script>';
-	}
+<?php 
+$errors = '';
+$myemail = 'hollanipekunjohnson@yahoo.com';
+if(empty($_POST['name'])  ||
+   empty($_POST['email']) ||
+   empty($_POST['message']))
+{
+    $errors .= "\n Error: all fields are required";
+}
+$name = $_POST['name'];
+$email_address = $_POST['email'];
+$message = $_POST['message'];
+if (!preg_match(
+"/ ^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
+$email_address))
+{
+    $errors .= "\n Error: Invalid email address";
+}
+if( empty($errors))
+{
+    $to = '$myemail';
+    $email_subject = "Contact form submission: $name";
+    $email_body = "You have received a new message. ".
+        " Here are the details:\n Name: $name \n ".
+        "Email: $email_address\n Message \n $message";
+    $headers = "From: $myemail\n";
+    $headers .= "Reply-To: $email_address";
+    mail($to,$email_subject,$email_body,$headers);
+    //redirect to the 'thank you' page
+    header('Location: contact-form-thank-you.html');
 }
 ?>
