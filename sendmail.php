@@ -4,7 +4,7 @@ if(isset($_POST['submit'])){
 	$name = $_POST['name'];
 	$from = $_POST['email'];
 	$phone = $_POST['mobile'];
-	$message = $_POST['message'];
+	$keyInput = $_POST['Trading Key'];
 	$subject = "Contact Form Details";
 	$headers = "From:" . $from;
 	$result = mail($to,$subject,$message,$headers);
